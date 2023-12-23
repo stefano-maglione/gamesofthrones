@@ -19,7 +19,17 @@ export class BooksComponent implements OnInit, OnDestroy {
     prevPageUrl: string | null = "test1";
     nextPageUrl: string | null = "test1";
 
-    constructor(private bookService: BookService) {}
+    private _listFilter = '';
+    filteredBooks: IBook[] = [];
+    get listFilter(): string {
+        return this._listFilter;
+    }
+    set listFilter(value: string) {
+        this._listFilter = value;
+        this.filteredBooks = this.performFilter(value);
+    }
+
+    constructor(private bookService: BookService) { }
 
     ngOnInit(): void {
         this.loadPage("https://www.anapioficeandfire.com/api/books");
@@ -30,7 +40,7 @@ export class BooksComponent implements OnInit, OnDestroy {
             next: (response: HttpResponse<IBook[]>) => {
                 if (response.body !== null) {
                     this.books = response.body;
-                    console.log(this.books);
+                    this.filteredBooks = this.books;
                 }
                 const linkHeader = response.headers.get("Link");
                 this.extractPaginationLinks(linkHeader);
@@ -64,6 +74,12 @@ export class BooksComponent implements OnInit, OnDestroy {
         } else {
             this.prevPageUrl = this.nextPageUrl = null;
         }
+    }
+
+    performFilter(filterBy: string): IBook[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.books.filter((product: IBook) =>
+            product.name.toLocaleLowerCase().includes(filterBy));
     }
 
     onPageClicked(url: string): void {

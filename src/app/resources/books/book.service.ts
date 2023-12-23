@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import {
-    catchError, Observable, tap, throwError
-} from "rxjs";
+import { catchError, Observable, tap, throwError, map } from "rxjs";
+
+
 
 import { IBook } from "./book";
 
@@ -14,15 +14,14 @@ export class BookService {
 
     constructor(private http: HttpClient) { }
 
-    /* getBooks(page: number): Observable<IBook[]> {
-    const params = new HttpParams().set('page', page.toString());
-
-    return this.http.get<IBook[]>(this.bookUrl, { params })
-      .pipe(
-        tap(data => console.log('All: ', JSON.stringify(data))),
-        catchError(this.handleError)
-      );
-  } */
+    getBook(isbn: string): Observable<IBook | undefined> {
+        return this.getBooks(this.bookUrl).pipe(
+          map((response: HttpResponse<IBook[]>) => {
+            const books = response.body;
+            return books ? books.find(b => b.isbn === isbn) : undefined;
+          })
+        );
+      }
 
     getBooks(url: string): Observable<HttpResponse<IBook[]>> {
         return this.http.get<IBook[]>(url, { observe: "response" })
@@ -33,8 +32,8 @@ export class BookService {
     }
 
     private handleError(err: HttpErrorResponse): Observable<never> {
-    // in a real world app, we may send the server to some remote logging infrastructure
-    // instead of just logging it to the console
+        // in a real world app, we may send the server to some remote logging infrastructure
+        // instead of just logging it to the console
         let errorMessage = "";
         if (err.error instanceof ErrorEvent) {
             // A client-side or network error occurred. Handle it accordingly.

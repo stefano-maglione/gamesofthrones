@@ -1,0 +1,25 @@
+
+.card .info-label {
+    font-weight: bold;
+    color: #ca3372;
+}
+
+
+.card .info-value {
+    font-weight: bold;
+    color: #495057;
+    font-size: 16px;
+}
+
+
+.card .emphasis-label {
+    font-weight: bold;
+    color: #cc3366;
+}
+
+
+.card {
+    background-color: rgba(43, 20, 214, 0.2);
+    border: 1px solid #dee2e6;
+    margin-top: 150px;
+}

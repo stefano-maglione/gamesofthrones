@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 
+
+
 import { AppComponent } from "./app.component";
 import { OverviewModule } from "./overview/overview.module";
 import { OverviewComponent } from "./overview/overview/overview.component";
@@ -11,8 +13,7 @@ import { ResourcesModule } from "./resources/resources.module";
 
 @NgModule({
     declarations: [
-        AppComponent,
-
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -21,7 +22,6 @@ import { ResourcesModule } from "./resources/resources.module";
         HttpClientModule,
         RouterModule.forRoot([
             { path: "home", component: OverviewComponent },
-            { path: "book", component: BooksComponent },
             { path: "", redirectTo: "home", pathMatch: "full" },
             { path: "**", redirectTo: "home", pathMatch: "full" }
         ]),

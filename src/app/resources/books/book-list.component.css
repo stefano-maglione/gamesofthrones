@@ -1,0 +1,84 @@
+.card-img-top {
+    max-width: 20%;
+    height: auto;
+  }
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+  
+  .h-100 {
+    height: 100%;
+  }
+  
+  .border-0 {
+    border: 0 !important;
+  }
+  
+  .shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .bg-light {
+    background-color: hsl(30, 84%, 48%) !important;
+  }
+  
+  .bg-dark {
+    background-color: #367bc1 !important;
+  }
+  
+  .bg-info {
+    background-color: #17a2b8 !important;
+  }
+  
+  .text-light {
+    color: #fff !important;
+  }
+  
+  .text-dark {
+    color: #000 !important;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(0.5rem - 1px);
+    border-top-right-radius: calc(0.5rem - 1px);
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem; /* Increase font size for the card title */
+    color: #4800ff; /* Set the title color to a blue shade */
+  }
+  
+  .card-text {
+    margin-bottom: 1.25rem;
+  }
+  
+  .card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  
+  .bg-transparent {
+    background-color: transparent !important;
+  }
+  
+  .text-muted {
+    color: #1d78c8 !important;
+  }
+  

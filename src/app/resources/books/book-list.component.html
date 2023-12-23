@@ -1,0 +1,23 @@
+<div class="row row-cols-1 row-cols-md-5 g-4">
+    <div class="col" *ngFor="let book of books; let i = index">
+      <div [ngClass]="{'card': true, 'h-100': true, 'border-0': true, 'shadow': true, 'bg-light': i % 2 === 0, 'bg-dark': i % 2 !== 0}">
+        <img src="/assets/images/book.png" class="card-img-top rounded" alt="{{ book.name }}">
+        <div class="card-body">
+          <h5 class="card-title {{ i % 2 !== 0 ? 'text-light' : '' }}">{{ book.name }}</h5>
+          <p class="card-text {{ i % 2 !== 0 ? 'text-light' : '' }}">{{ book.numberOfPages }} pages</p>
+          <p class="card-text {{ i % 2 !== 0 ? 'text-light' : '' }}">Authors: {{ book.authors.join(', ') }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <small class="text-muted {{ i % 2 !== 0 ? 'text-light' : '' }}">Released: {{ book.released | date:'mediumDate' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<gm-pagination
+    [prevPageUrl]="prevPageUrl"
+    [nextPageUrl]="nextPageUrl"
+    (nextPageClicked)="onPageClicked($event)"
+    (prevPageClicked)="onPageClicked($event)">
+</gm-pagination>
+  

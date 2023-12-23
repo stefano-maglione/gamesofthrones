@@ -1,0 +1,33 @@
+/* Add some top margin to the pagination */
+nav.pagination {
+    margin-top: 20px; /* Adjust the value as needed */
+    transition: background-color 0.3s; /* Add a smooth transition effect to the background color */
+  }
+  
+  /* Style the page link */
+  .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Set the cursor to a hand */
+  }
+  
+  /* Style the arrow images */
+  .page-link img {
+    width: 20px; /* Adjust the initial width as needed */
+    height: 20px; /* Adjust the initial height as needed */
+    margin-top: -2px; /* Adjust the margin as needed */
+    transition: filter 0.3s, transform 0.3s; /* Add smooth transitions */
+  }
+  
+  /* Position the entire navigation bar to the right */
+  nav.pagination ul {
+    margin-left: auto;
+  }
+  
+  /* Change image color and enlarge on hover */
+  .page-link img:hover {
+    filter: invert(1); /* Invert the color of the image */
+    transform: scale(1.2); /* Enlarge the image (adjust the scale factor as needed) */
+  }
+  

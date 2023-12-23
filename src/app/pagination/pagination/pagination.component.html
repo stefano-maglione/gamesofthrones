@@ -1,0 +1,16 @@
+<nav aria-label="Page navigation" class="pagination">
+    <ul class="pagination justify-content-end">
+      <li class="page-item" *ngIf="prevPageUrl !== null">
+        <a class="page-link" (click)="onPrevPage(prevPageUrl)" aria-label="Previous">
+          <!-- Use a custom image for the previous arrow -->
+          <img src="/assets/images/two-arrows_left.png" alt="Previous">
+        </a>
+      </li>
+      <li class="page-item" *ngIf="nextPageUrl !== null">
+        <a class="page-link" (click)="onNextPage(nextPageUrl)" aria-label="Next">
+          <!-- Use a custom image for the next arrow -->
+          <img src="/assets/images/two-arrows_right.png" alt="Next">
+        </a>
+      </li>
+    </ul>
+</nav>

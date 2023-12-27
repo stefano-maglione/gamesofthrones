@@ -3,7 +3,7 @@ import {
 } from "@angular/core";
 
 @Component({
-    selector: "gm-pagination",
+    selector: "app-gm-pagination",
     templateUrl: "./pagination.component.html",
     styleUrls: ["./pagination.component.css"]
 })

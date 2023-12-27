@@ -3,12 +3,9 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 
-
-
 import { AppComponent } from "./app.component";
 import { OverviewModule } from "./overview/overview.module";
 import { OverviewComponent } from "./overview/overview/overview.component";
-import { BooksComponent } from "./resources/books/book-list.component";
 import { ResourcesModule } from "./resources/resources.module";
 
 @NgModule({

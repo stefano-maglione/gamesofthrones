@@ -34,7 +34,7 @@
       <div class="spinner"></div>
     </div>
   </div>
-  <gm-pagination *ngIf="filteredBooks.length > 0" [prevPageUrl]="prevPageUrl" [nextPageUrl]="nextPageUrl"
+  <app-gm-pagination *ngIf="filteredBooks.length > 0" [prevPageUrl]="prevPageUrl" [nextPageUrl]="nextPageUrl"
     (nextPageClicked)="onPageClicked($event)" (prevPageClicked)="onPageClicked($event)">
-  </gm-pagination>
+  </app-gm-pagination>
 </div>

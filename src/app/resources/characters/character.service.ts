@@ -1,30 +1,29 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {
-    catchError, map, Observable, tap, throwError
+    catchError, Observable, tap, throwError
 } from "rxjs";
 
-import { IBook } from "./book";
+import { ICharacter } from "./character";
 
 @Injectable({
     providedIn: "root"
 })
-export class BookService {
-    private bookUrl = "https://www.anapioficeandfire.com/api/books";
+export class CharacterService {
+    private characterUrl = "https://www.anapioficeandfire.com/api/characters";
 
     constructor(private http: HttpClient) { }
 
-    getBook(isbn: string): Observable<IBook | undefined> {
-        return this.getBooks(this.bookUrl).pipe(
-            map((response: HttpResponse<IBook[]>) => {
-                const books = response.body;
-                return books ? books.find((b) => b.isbn === isbn) : undefined;
-            })
-        );
+    getCharacter(id: string) : Observable<HttpResponse<ICharacter>> {
+        return this.http.get<ICharacter>(`${this.characterUrl}/${id}`, { observe: "response" })
+            .pipe(
+                tap((response) => console.log("ONE: ", JSON.stringify(response.body))),
+                catchError(this.handleError)
+            );
     }
 
-    getBooks(url: string): Observable<HttpResponse<IBook[]>> {
-        return this.http.get<IBook[]>(url, { observe: "response" })
+    getCharacters(url: string): Observable<HttpResponse<ICharacter[]>> {
+        return this.http.get<ICharacter[]>(url, { observe: "response" })
             .pipe(
                 tap((response) => console.log("All: ", JSON.stringify(response.body))),
                 catchError(this.handleError)

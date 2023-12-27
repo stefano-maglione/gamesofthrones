@@ -19,7 +19,7 @@ export class BooksComponent implements OnInit, OnDestroy {
     prevPageUrl: string | null = "test1";
     nextPageUrl: string | null = "test1";
 
-    private _listFilter = '';
+    private _listFilter = "";
     filteredBooks: IBook[] = [];
     get listFilter(): string {
         return this._listFilter;
@@ -78,8 +78,7 @@ export class BooksComponent implements OnInit, OnDestroy {
 
     performFilter(filterBy: string): IBook[] {
         filterBy = filterBy.toLocaleLowerCase();
-        return this.books.filter((product: IBook) =>
-            product.name.toLocaleLowerCase().includes(filterBy));
+        return this.books.filter((product: IBook) => product.name.toLocaleLowerCase().includes(filterBy));
     }
 
     onPageClicked(url: string): void {

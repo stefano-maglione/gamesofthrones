@@ -1,9 +1,12 @@
-<nav class='navbar navbar-expand navbar-light bg-light'>
+<nav class='navbar navbar-expand navbar-light bg-dark'>
   <ul class='nav nav-pills'>
-    <li><a class='nav-link' routerLinkActive='active' routerLink='/home'>Home</a></li>
     <li><a class='nav-link' routerLinkActive='active' routerLink='/books'>Books</a></li>
     <li><a class='nav-link' routerLinkActive='active' routerLink='/characters'>Characters</a></li>
-    <li><a class='nav-link' routerLinkActive='active' routerLink='/houses'>Houses</a></li>
+  </ul>
+  <ul class='nav nav-pills ml-auto'>
+    <li>
+      <gm-search></gm-search>
+    </li>
   </ul>
 </nav>
 <div class='container'>

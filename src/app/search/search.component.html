@@ -1,0 +1,11 @@
+<!-- search.component.html -->
+<div class="container mt-1">
+  <form class="form-inline" (ngSubmit)="onSearch()">
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="searchQuery" placeholder="Search" />
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>

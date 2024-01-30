@@ -31,6 +31,15 @@ export class BookService {
             );
     }
 
+    getBooksByName(query: string): Observable<HttpResponse<IBook[]>> {
+        // Implement logic to search books based on the query
+        const url = `${this.bookUrl}?name=${query}`;
+        return this.http.get<IBook[]>(url, { observe: "response" })
+          .pipe(
+            catchError(this.handleError)
+          );
+      }
+
     private handleError(err: HttpErrorResponse): Observable<never> {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console

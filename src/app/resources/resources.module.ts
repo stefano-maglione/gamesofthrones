@@ -9,6 +9,7 @@ import { BooksComponent } from "./books/book-list.component";
 import { CharacterDetailComponent } from "./characters/character-detail.component";
 import { CharactersComponent } from "./characters/characters.component";
 import { HouseComponent } from "./house/house.component";
+import { AuthGuard } from "../auth.guard";
 
 @NgModule({
     declarations: [
@@ -20,16 +21,15 @@ import { HouseComponent } from "./house/house.component";
     ],
     imports: [
         RouterModule.forChild([
-            { path: "books", component: BooksComponent },
-            { path: "characters", component: CharactersComponent },
-            { path: "houses", component: HouseComponent },
+            { path: "books", component: BooksComponent , canActivate: [AuthGuard] },
+            { path: "characters", component: CharactersComponent , canActivate: [AuthGuard]  },
             {
                 path: "books/:id",
-                component: BookDetailComponent
+                component: BookDetailComponent, canActivate: [AuthGuard] 
             },
             {
                 path: "characters/:id",
-                component: CharacterDetailComponent
+                component: CharacterDetailComponent, canActivate: [AuthGuard] 
             }
         ]),
         CommonModule,
